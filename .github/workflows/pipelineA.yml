@@ -8,6 +8,7 @@ jobs:
       - name: "Build app"
         uses: actions/checkout@v3
       - run: |
-         dir ${{ github.workspace }}
+          echo "Trying dir"
+          dir ${{ github.workspace }}
       - run: echo "yah boiii"
     
