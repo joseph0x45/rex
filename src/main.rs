@@ -2,7 +2,11 @@ use std::{self, io::stdin};
 
 fn main() {
 
-    println!("Welcome to Rex CLI 🙂");
+    println!("
+    ╦═╗┌─┐─┐ ┬  ╔═╗╦  ╦
+    ╠╦╝├┤ ┌┴┬┘  ║  ║  ║
+    ╩╚═└─┘┴ └─  ╚═╝╩═╝╩
+    ");
     let action: Option<String> = std::env::args().nth(1);
     let template: Option<String> = std::env::args().nth(2);
     let project_name: Option<String> = std::env::args().nth(3);
@@ -20,6 +24,7 @@ fn main() {
                                 },
                                 "ts" | "typescript"=>{
                                     println!("Bootstrapping TypeScript template...");
+                                    scaffolder(project_name, template);
                                     return
                                 },
                                 _=>{
