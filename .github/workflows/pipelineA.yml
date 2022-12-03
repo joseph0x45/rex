@@ -5,6 +5,9 @@ jobs:
   Main:
     runs-on: windows-latest
     steps:
-      - run: echo "Bruh I'm running"
-    
+      - name: "Build app"
+        uses: actions/checkout@v3
+      - run: |
+         dir ${{ github.workspace }}
+      - run: echo "yah boiii"
     
