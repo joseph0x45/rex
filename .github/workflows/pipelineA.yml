@@ -4,5 +4,7 @@ on: [push]
 jobs:
   Main:
     runs-on: windows-latest
+    steps:
+      - run: echo "Bruh I'm running"
     
     

@@ -1,14 +1,35 @@
 use std;
 
-
 fn main() {
 
     println!("Welcome to Rex CLI 🙂");
-    let action = std::env::args().nth(1);
+    let action: Option<String> = std::env::args().nth(1);
+    let template: Option<String> = std::env::args().nth(2);
     match action {
         Some(action)=>{
             match action.as_str() {
                 "init"=>{
+                    match template {
+                        Some(template)=>{
+                            match template.as_str() {
+                                "js" | "javascript"=>{
+                                    println!("Bootstrapping JavaScript template...");
+                                    return
+                                },
+                                "ts" | "typescript"=>{
+                                    println!("Bootstrapping TypeScript template...");
+                                    return
+                                },
+                                _=>{
+                                    println!("Unrecognized template. Only typescript and javascript templates are supported by Rex for now.");
+                                    return
+                                }
+                            }
+                        },
+                        None=>{
+
+                        }
+                    }
                     println!("init command received");
                     return
                 },
