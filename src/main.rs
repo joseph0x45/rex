@@ -27,11 +27,10 @@ fn main() {
                             }
                         },
                         None=>{
-
+                            println!(" Please provide a template by running `rex init ts` or `rex init js` ");
+                            return
                         }
                     }
-                    println!("init command received");
-                    return
                 },
                 "help"=>{
                     println!("
