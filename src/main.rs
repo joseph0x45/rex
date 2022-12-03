@@ -54,9 +54,22 @@ fn main() {
 }
 
 
-fn scaffolder( project_name: Option<String>, template: String ){
+fn scaffolder( project_name: Option<String>, mut template: String ){
+    //Templates url match this string
+    //https://github.com/TheWisePigeon/rex-<template_name>-template.git https://github.com/TheWisePigeon/rex-js-template.git
     //Check if the project name has been provided
     //Ask for it if not
+    match template.as_str() {
+        "js" | "javascript" | "JavaScript" =>{
+            template = String::from("js");
+        },
+        "ts" | "typescript" | "TypeScript" =>{
+            template = String::from("js")
+        },
+        _=>{
+            return;
+        }
+    }
     match project_name {
         Some(project_name)=>{
             let root_folder: String = std::env::current_dir()
@@ -65,13 +78,27 @@ fn scaffolder( project_name: Option<String>, template: String ){
                 .to_str()
                 .unwrap()
                 .into();
-            println!("{}", root_folder);
             let project_folder: String = String::from(std::format!("{}\\{project}", root_folder, project=project_name));
             if std::path::Path::new(&project_folder).is_dir(){
                 println!("A folder with the same name already exists");
                 return
             }
-            
+            //Clone the content of the corresponding template into the new folder
+            std::process::Command::new("git")
+                .arg("clone")
+                .arg(std::format!("https://github.com/TheWisePigeon/rex-{template}-template.git"))
+                .arg(std::format!("{project_name}"))
+                .status()
+                .expect("Something went wrong");
+            //Change current working directory into newly created project folder
+            std::env::set_current_dir(&std::path::Path::new(&project_folder)).unwrap();
+            //Delete the default remote origin branch
+            std::process::Command::new(std::format!("git"))
+                .arg("remote")
+                .arg("remove")
+                .arg("origin")
+                .status()
+                .expect("Something went wrong while setting up project");
 
         },
         None=>{
