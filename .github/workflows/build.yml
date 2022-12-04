@@ -1,0 +1,15 @@
+name: Build
+run-name: Continuous Integration
+on: [push]
+jobs:
+  Build:
+    runs-on: windows-latest
+    steps:
+      - name: Setup | Checkout
+        uses: actions/checkout@v3
+      - name: Setup | Rust
+        uses: ATiltedTree/setup-rust@v1.0.5
+        with:
+          rust-version: stable
+      - name: Build app
+        run: cargo build --release
