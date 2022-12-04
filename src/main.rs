@@ -10,13 +10,6 @@ struct Config {
 
 fn main() {
 
-    println!("
-    ██████╗░███████╗██╗░░██╗  ░█████╗░██╗░░░░░██╗
-    ██╔══██╗██╔════╝╚██╗██╔╝  ██╔══██╗██║░░░░░██║
-    ██████╔╝█████╗░░░╚███╔╝░  ██║░░╚═╝██║░░░░░██║
-    ██╔══██╗██╔══╝░░░██╔██╗░  ██║░░██╗██║░░░░░██║
-    ██║░░██║███████╗██╔╝╚██╗  ╚█████╔╝███████╗██║
-    ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝  ░╚════╝░╚══════╝╚═╝");
     
     let action: Option<String> = std::env::args().nth(1);
     let arg1: Option<String> = std::env::args().nth(2);
@@ -25,16 +18,23 @@ fn main() {
         Some(action)=>{
             match action.as_str() {
                 "init"=>{
+                    println!("
+                    ██████╗░███████╗██╗░░██╗  ░█████╗░██╗░░░░░██╗
+                    ██╔══██╗██╔════╝╚██╗██╔╝  ██╔══██╗██║░░░░░██║
+                    ██████╔╝█████╗░░░╚███╔╝░  ██║░░╚═╝██║░░░░░██║
+                    ██╔══██╗██╔══╝░░░██╔██╗░  ██║░░██╗██║░░░░░██║
+                    ██║░░██║███████╗██╔╝╚██╗  ╚█████╔╝███████╗██║
+                    ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝  ░╚════╝░╚══════╝╚═╝");
                     match arg1 {
                         Some(arg1)=>{
                             match arg1.as_str() {
                                 "js" | "javascript"=>{
-                                    println!("Bootstrapping JavaScript template...");
+                                    println!("Bootstrapping JavaScript template");
                                     scaffolder(arg2, arg1);
                                     return
                                 },
                                 "ts" | "typescript"=>{
-                                    println!("Bootstrapping TypeScript template...");
+                                    println!("Bootstrapping TypeScript template");
                                     scaffolder(arg2, arg1);
                                     return
                                 },
@@ -72,7 +72,7 @@ fn main() {
                 },
                 "help"=>{
                     println!("
-                        Welcome to the Rex documentation \n Please refeer to https://github.com/TheWisePigeon/rex/readme.md for the full extended documentation
+                        Welcome to the Rex documentation \n Please refeer to https://github.com/TheWisePigeon/rex#readme for the full extended documentation
                     ");
                     return
                 },
@@ -100,7 +100,7 @@ fn scaffolder( arg2: Option<String>, mut arg1: String ){
             arg1 = String::from("js");
         },
         "ts" | "typescript" | "TypeScript" =>{
-            arg1 = String::from("js")
+            arg1 = String::from("ts")
         },
         _=>{
             return;
@@ -125,7 +125,7 @@ fn scaffolder( arg2: Option<String>, mut arg1: String ){
                 .arg(std::format!("https://github.com/TheWisePigeon/rex-{arg1}-template.git"))
                 .arg(std::format!("{arg2}"))
                 .status()
-                .expect("Something went wrong");
+                .expect("Something went wrong while setting up project");
             //Change current working directory into newly created project folder
             std::env::set_current_dir(&std::path::Path::new(&project_folder)).unwrap();
             //Delete the default remote origin branch
@@ -134,7 +134,7 @@ fn scaffolder( arg2: Option<String>, mut arg1: String ){
                 .arg("remove")
                 .arg("origin")
                 .status()
-                .expect("Something went wrong while setting up project");
+                .expect("Something went wrong while setting up project. Please head over to https://github.com/TheWisePigeon/rex/issues to report the issue");
 
         },
         None=>{
@@ -159,13 +159,11 @@ fn add_service(service: Option<String>) {
                 .unwrap()
                 .into();
             let rex_conf_json_path = std::format!("{root_folder}\\rex.conf.json");
-            println!("{}", rex_conf_json_path);
             if !std::path::Path::new(&rex_conf_json_path).is_file() {
-                println!("Make sure you are at the root of a rex generated project, and try again");
+                println!("Make sure you are at the root of a rex generated project, and try again. Run `rex help` for the documentation");
                 return;
             }
             //Add new file in services folder and add corresponding folder in routes folder
-            println!("Adding service {}", service);
             let rex_conf_json_content = std::fs::read_to_string(std::path::Path::new(&rex_conf_json_path));
             match rex_conf_json_content {
                 Ok(value)=>{
@@ -194,6 +192,7 @@ fn add_service(service: Option<String>) {
                     std::fs::File::create(std::format!("{root_folder}\\src\\routes\\{service}\\index.{extension}"))
                         .expect("Error while creating service.  \nPlease head over to https://github.com/TheWisePigeon/rex/issues to report the issue");
                     //Exit program
+                    println!("{} service added", service);
                     return
                 },
                 Err(_)=>{
@@ -204,7 +203,7 @@ fn add_service(service: Option<String>) {
             
         },
         None=>{
-            println!("Please provide a service name");
+            println!("Please provide a service name. Run `rex help` for the documentation");
             return
         }
     }
