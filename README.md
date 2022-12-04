@@ -1,4 +1,5 @@
 # Rex CLI
+[![forthebadge made-with-rust](http://ForTheBadge.com/images/badges/made-with-rust.svg)](https://www.rust-lang.org/)
 
 [![Build](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml/badge.svg)](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml)
 ## What is Rex?
