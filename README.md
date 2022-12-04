@@ -29,5 +29,4 @@ Only "js" et "ts" templates are available for now. I intend to make users able t
 ### Folder Structure
 A rex scaffolded project structure looks like this
 
-
-![build](https://github.com/TheWisePigeon/rex/.github/workflows/pipelineA.yml/badge.svg?event=push)
+[![CI](https://github.com/TheWisePigeon/rex/actions/workflows/pipelineA.yml/badge.svg)](https://github.com/TheWisePigeon/rex/actions/workflows/pipelineA.yml)
