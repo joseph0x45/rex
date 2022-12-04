@@ -1,4 +1,6 @@
 # Rex CLI
+
+[![Build](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml/badge.svg)](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml)
 ## What is Rex?
 Rex is a CLI that will help you scaffold your next Express project, using either TypeScript or JavaScript. But Rex can be much more.
 
@@ -28,5 +30,3 @@ Only "js" et "ts" templates are available for now. I intend to make users able t
 
 ### Folder Structure
 A rex scaffolded project structure looks like this
-
-[![CI](https://github.com/TheWisePigeon/rex/actions/workflows/pipelineA.yml/badge.svg)](https://github.com/TheWisePigeon/rex/actions/workflows/pipelineA.yml)

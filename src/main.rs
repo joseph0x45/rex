@@ -9,6 +9,7 @@ fn main() {
     ██╔══██╗██╔══╝░░░██╔██╗░  ██║░░██╗██║░░░░░██║
     ██║░░██║███████╗██╔╝╚██╗  ╚█████╔╝███████╗██║
     ╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝  ░╚════╝░╚══════╝╚═╝");
+    
     let action: Option<String> = std::env::args().nth(1);
     let template: Option<String> = std::env::args().nth(2);
     let project_name: Option<String> = std::env::args().nth(3);
