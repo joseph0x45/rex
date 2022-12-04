@@ -122,7 +122,7 @@ fn scaffolder( arg2: Option<String>, mut arg1: String ){
             //Clone the content of the corresponding arg1 into the new folder
             std::process::Command::new("git")
                 .arg("clone")
-                .arg(std::format!("https://github.com/TheWisePigeon/rex-{arg1}-arg1.git"))
+                .arg(std::format!("https://github.com/TheWisePigeon/rex-{arg1}-template.git"))
                 .arg(std::format!("{arg2}"))
                 .status()
                 .expect("Something went wrong");
