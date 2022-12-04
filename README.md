@@ -28,3 +28,6 @@ Only "js" et "ts" templates are available for now. I intend to make users able t
 
 ### Folder Structure
 A rex scaffolded project structure looks like this
+
+
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
