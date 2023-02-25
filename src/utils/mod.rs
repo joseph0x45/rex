@@ -57,6 +57,7 @@ pub fn init( argument: &str, project_name: Option<String> ){
             std::fs::create_dir(get_project_path(&project_name.clone())).expect("Failed to create project directory");
             let project_path = get_project_path(project_name.as_str());
             copy_files( String::from(project_path.to_str().unwrap()), template_location);
+            return;
         }else{
             let mut project_name: String = String::from("");
             println!("What is your project name? Leave blank to use current directory(Works for empty directories only)");
@@ -75,6 +76,7 @@ pub fn init( argument: &str, project_name: Option<String> ){
             std::fs::create_dir(get_project_path(&project_name.trim_end().clone())).expect("Failed to create project directory");
             let project_path = get_project_path(project_name.as_str().trim_end());
             copy_files(String::from(project_path.to_str().expect("Error while initializing project")), template_location);
+            return;
         }
     }
 }
