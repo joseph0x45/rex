@@ -98,36 +98,6 @@ pub fn init(argument: &str, project_name: Option<String>) {
     }
 }
 
-pub fn add_service() {
-    let current_dir = std::env::current_dir().expect("Error while reading current directory");
-    let rex_conf_path = format!(
-        "{}\\rex.conf",
-        current_dir
-            .to_str()
-            .expect("Error while reading current directory")
-    );
-    if !Path::new(&rex_conf_path).is_dir() {
-        println!(
-            "It seems like you are not in a rex generated project, the rex.conf file is missing"
-        );
-        return;
-    }
-    let rex_conf_content = std::fs::read_to_string(rex_conf_path).expect("Failed to read rex.conf");
-    let rex_conf: Vec<&str> = rex_conf_content.split("\n").collect();
-    let mut rex_template: &str = "";
-    for config in rex_conf {
-        let splitted_line: Vec<&str> = config.split("=").collect();
-        if splitted_line.len() < 3 {
-            println!("Error while reading rex.conf. A key is malformed {config}");
-            return;
-        }
-        if splitted_line[0] == "TEMPLATE" {
-            rex_template = splitted_line[2];
-            break;
-        }
-    }
-    if rex_template == "" {
-        println!("Failed to read template type from rex.conf");
-        return;
-    }
+pub fn add_service(name: String) {
+    
 }

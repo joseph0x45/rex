@@ -4,6 +4,13 @@ use std::path::Path;
 
 use utils::{add_service, greet, init, print_help_message};
 
+fn invalid_type_message(){
+    println!(r#"
+    Invalid type or type key not found in rex.conf. Make sure the TEMPLATE key is either `typescript` or `javascript`.
+    Read Rex docs here https://github.com/TheWisePigeon/rex#README
+    "#)
+}
+
 fn main() {
     match std::env::args().nth(1) {
         Some(arg1) => match arg1.as_str() {
@@ -47,16 +54,18 @@ fn main() {
                         break;
                     }
                 }
-                if rex_template == "" {
-                    println!("Failed to read template type from rex.conf");
+                if rex_template == "" || (rex_template!="javascript" && rex_template!="typescript") {
+                    invalid_type_message();
                     return;
                 }
+
                 let add_action = std::env::args().nth(4);
                 if let Some(action) = add_action{
                     match action.as_str() {
                         "service" => {
                             let service_name = std::env::args().nth(5);
                             if let Some(name) = service_name {
+                                add_service(name);
                             } else {
                                 println!("You did not specify the service name. Read Rex docs here https://github.com/TheWisePigeon/rex#README")
                             }
