@@ -1,5 +1,5 @@
 use fs_extra::{self, dir::CopyOptions};
-use std::{path::{Path, PathBuf}};
+use std::{path::{Path, PathBuf}, fs};
 
 pub fn greet() {
     let message = r###"
@@ -99,6 +99,7 @@ pub fn init(argument: &str, project_name: Option<String>) {
 }
 
 pub fn add_service(name: String, extension: &str) {
+    let error = "Error while adding service";
     let current_directory = std::env::current_dir()
         .expect("Error while reading current directory");
     let current_directory = current_directory
@@ -107,5 +108,9 @@ pub fn add_service(name: String, extension: &str) {
     let service_path = format!("{current_directory}\\src\\services\\{name}.{extension}");
     let route_path = format!("{current_directory}\\src\\routes\\{name}");
     let route_index_path = format!("{route_path}\\index.{extension}");
-    println!("{} {} {}", service_path, route_path, route_index_path);
+    fs::File::create(service_path).expect(error);
+    fs::create_dir(route_path).expect(error);
+    fs::File::create(route_index_path).expect(error);
+    println!("Added service {name}");
+    return;
 }
