@@ -31,11 +31,6 @@ The syntax is `rex init {template} {project_name}`. Some examples below
 rex init js crudAPI
 rex init ts hello_rex
 ```
-You can do use "ts"/"js" or "typescript"/"javascript", both will work
-```bash
-rex init javascript crudAPI
-rex init typescript hello_rex
-```
 
 ### Folder Structure
 A rex scaffolded project structure looks like this
@@ -55,18 +50,12 @@ You can quickly create a new service with rex, by running
 ```bash
 rex add service <service_name>
 ```
-at the root of your rex generated project. This will create a file in the services directory, a folder in the routes directory and an index file in that folder. For design purposes, please make sure the name of your services files always start with a capital letter.
-
-AuthService.ts ✅
-
-authservice.ts ❌
-
+at the root of your rex generated project. This will create a file in the services directory, a folder in the routes directory and an index file in that folder.
 ## Roadmap
 Here are a few things I will work on for Rex.
 
 - Extend Rex to other technologies by adding more templates
 - Let users create their own templates
-- Automatic imports when creating a new service
 
 That's it. Drop a star if you like this project or find it useful. Feel free to contribute. If you gpt any remarks, please reach to me through my socials down below
 
