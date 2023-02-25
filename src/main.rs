@@ -58,14 +58,14 @@ fn main() {
                     invalid_type_message();
                     return;
                 }
-
-                let add_action = std::env::args().nth(4);
+                let extension = if rex_template=="typescript" {"ts"} else {"js"};
+                let add_action = std::env::args().nth(2);
                 if let Some(action) = add_action{
                     match action.as_str() {
                         "service" => {
-                            let service_name = std::env::args().nth(5);
+                            let service_name = std::env::args().nth(3);
                             if let Some(name) = service_name {
-                                add_service(name);
+                                add_service(name, extension);
                             } else {
                                 println!("You did not specify the service name. Read Rex docs here https://github.com/TheWisePigeon/rex#README")
                             }
