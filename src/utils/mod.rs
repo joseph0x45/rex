@@ -106,6 +106,10 @@ pub fn add_service(name: String, extension: &str) {
         .to_str()
         .expect("Error while reading current directory");
     let service_path = format!("{current_directory}\\src\\services\\{name}.{extension}");
+    if Path::new(&service_path).is_dir(){
+        println!("This service already exists apparently");
+        return;
+    }
     let route_path = format!("{current_directory}\\src\\routes\\{name}");
     let route_index_path = format!("{route_path}\\index.{extension}");
     fs::File::create(service_path).expect(error);
