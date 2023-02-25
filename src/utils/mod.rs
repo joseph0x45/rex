@@ -30,7 +30,6 @@ fn get_project_path(project_name: &str) -> PathBuf {
 }
 
 fn copy_files(project_path: String, template_location: String){
-    println!("{project_path}");
     let template_entries = std::fs::read_dir(template_location.strip_prefix(r#"\\?\"#).unwrap()).expect("something fucked");
     let mut items_paths: Vec<String> = vec![];
     for item in template_entries{
@@ -63,11 +62,19 @@ pub fn init( argument: &str, project_name: Option<String> ){
             println!("What is your project name? Leave blank to use current directory(Works for empty directories only)");
             std::io::stdin().read_line(&mut project_name).expect("Failed to read project name");
             if project_name.trim()==""{
-                println!("Nigga");
-                return;
+                if let Ok(mut dir) = std::fs::read_dir(std::env::current_dir().expect("Error while reading current directory")){
+                    if !dir.next().is_none(){
+                        println!("Directory is not empty. Can't initialize Rex project");
+                        return;
+                    }
+                    copy_files(String::from(""), template_location);
+                    return;
+                }
             }
             verify_if_dir_exists(&String::from(project_name.trim_end()));
-    
+            std::fs::create_dir(get_project_path(&project_name.trim_end().clone())).expect("Failed to create project directory");
+            let project_path = get_project_path(project_name.as_str().trim_end());
+            copy_files(String::from(project_path.to_str().expect("Error while initializing project")), template_location);
         }
     }
 }
