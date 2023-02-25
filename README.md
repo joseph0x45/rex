@@ -6,7 +6,7 @@
 Rex is a CLI that will help you scaffold your next Express project, using either TypeScript or JavaScript. But Rex can be much more.
 
 The structure of the templates are one that I follow for all my projects. I based it on `Microservices architecture`. Sticking to that
-structure improved my productivity and the readability/maintanability of my projects. That's why I decided to make a CLI that will help me
+structure improved my productivity and the readability, maintainability and scalability of my projects. That's why I decided to make a CLI that will help me
 bootstrap such projects as quickly as possible. If you intend to follow the same structure as me, then Rex becomes kind of a Framework.
 
 That's why I decided to call it a **Pseudo Framework**
