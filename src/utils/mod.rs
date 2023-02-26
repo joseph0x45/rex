@@ -38,6 +38,11 @@ fn copy_files(project_path: String, template_location: String) {
     }
     fs_extra::copy_items(&items_paths, project_path, &CopyOptions::new())
         .expect("Error while initializing project");
+    println!(r#"
+        Rex project initialized.
+        Now cd into your project and run npm install
+        Rex is at https://github.com/TheWisePigeon/rex
+    "#);
 }
 
 // pub fn add_service(){
@@ -60,7 +65,7 @@ pub fn init(argument: &str, project_name: Option<String>) {
             let project_path = get_project_path(project_name.as_str());
             copy_files(
                 String::from(project_path.to_str().unwrap()),
-                template_location,
+                template_location
             );
             return;
         } else {
@@ -91,7 +96,7 @@ pub fn init(argument: &str, project_name: Option<String>) {
                         .to_str()
                         .expect("Error while initializing project"),
                 ),
-                template_location,
+                template_location
             );
             return;
         }
