@@ -38,7 +38,7 @@ A rex scaffolded project structure looks like this
 
 Each folder contain a readme file that gives you information about what the folder should contain.
 
-- The `rex.conf.json` file contains informations that rex reads while doing some operations. Do not edit that file unless you understand what it is doing and know what you are doing.
+- The `rex.conf` file contains informations that rex reads while doing some operations. Do not edit that file unless you understand what it is doing and know what you are doing.
 - The `config` folder must contain a single index file, from where you will export things such as your database url, your app environment...
 - The `middlewares` folder contains every middleware that is not a main one. For example, if you would have a middleware that would check if the a request comes from a authenticated user by verifying a jwt, you would write it here and export it.
 - The `routes` folder contains folders that stand for routes. These folders contain index files where you export a `Express.Router`. The name of the folder must match the name of the service which must be dealing with a specific ressource or task.
