@@ -54,7 +54,11 @@ fn main() {
                         break;
                     }
                 }
-                if rex_template == "" || (rex_template!="javascript" && rex_template!="typescript") {
+                if rex_template == "" {
+                    invalid_type_message();
+                    return;
+                }
+                if rex_template.trim() !="typescript" && rex_template.trim() !="javascript"{
                     invalid_type_message();
                     return;
                 }

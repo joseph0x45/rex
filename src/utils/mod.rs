@@ -30,7 +30,7 @@ fn get_project_path(project_name: &str) -> PathBuf {
 }
 
 fn copy_files(project_path: String, template_location: String) {
-    let template_entries = std::fs::read_dir(template_location.strip_prefix(r#"\\?\"#).unwrap())
+    let template_entries = std::fs::read_dir(template_location)
         .expect("something fucked");
     let mut items_paths: Vec<String> = vec![];
     for item in template_entries {
