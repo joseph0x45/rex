@@ -17,7 +17,8 @@ That's why I decided to call it a **Pseudo Framework**
 ### Installation
 ⚠️Rex is available only on windows for now.
 
-To install Rex on your system, head over to [this link](https://github.com/TheWisePigeon/rex/releases/tag/pre-release) and download the `RexCLI.exe`
+To install Rex on your system, head over to [this link](https://github.com/TheWisePigeon/rex/releases) and download the `RexCLI.exe`
+Download the latest version : the 0.2.1 one
 
 Once the installation is complete, you will need to add Rex's folder to your path. Check in the `Program Files` folder, you will find a Rex folder, copy it's path and add it to your Path environment variable.
 
