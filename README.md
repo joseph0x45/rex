@@ -35,7 +35,8 @@ rex init ts hello_rex
 
 ### Folder Structure
 A rex scaffolded project structure looks like this
-![image_2022-12-04_181858118](https://user-images.githubusercontent.com/95161388/205508333-b67a4b77-b1f4-45ae-aed3-0d074cc19d8f.png)
+
+![image](https://user-images.githubusercontent.com/95161388/222002475-c36b9a57-bc96-4ea8-94ea-11ddf352f43d.png)
 
 Each folder contain a readme file that gives you information about what the folder should contain.
 
@@ -58,8 +59,7 @@ Here are a few things I will work on for Rex.
 - Extend Rex to other technologies by adding more templates
 - Let users create their own templates
 
-That's it. Drop a star if you like this project or find it useful. Feel free to contribute. If you gpt any remarks, please reach to me through my socials down below
+That's it. Drop a star if you like this project or find it useful. Feel free to contribute. If you have any remarks, please reach to me through my socials down below
 
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zozozozeph@gmail.com)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discordapp.com/users/624747283640221723)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/pigeondev0_0)
