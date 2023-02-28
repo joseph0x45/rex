@@ -62,7 +62,7 @@ fn main() {
                     invalid_type_message();
                     return;
                 }
-                let extension = if rex_template=="typescript" {"ts"} else {"js"};
+                let extension = if rex_template.trim()=="typescript" {"ts"} else {"js"};
                 let add_action = std::env::args().nth(2);
                 if let Some(action) = add_action{
                     match action.as_str() {
