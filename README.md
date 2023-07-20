@@ -1,3 +1,6 @@
+⚠️ Rex is deprecated and won't be maintained in the future
+⚠️ I made [Kuchiyose](https://github.com/TheWisePigeon/kuchiyose) as a replacement. Check it out :)
+
 # Rex CLI
 
 [![Build](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml/badge.svg)](https://github.com/TheWisePigeon/rex/actions/workflows/build.yml)
