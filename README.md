@@ -1,5 +1,4 @@
-⚠️ Rex is deprecated and won't be maintained in the future
-⚠️ I made [Kuchiyose](https://github.com/TheWisePigeon/kuchiyose) as a replacement. Check it out :)
+⚠️ Rex is deprecated and won't be maintained in the future. I made [Kuchiyose](https://github.com/TheWisePigeon/kuchiyose) as a replacement. Check it out :)
 
 # Rex CLI
 
